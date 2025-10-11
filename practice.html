@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<section id="navigation-section">
+    <!-- Desktop Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.webp" alt="Istazz Media Logo">
+                <div class="logo-text">Media</div>
+                <div class="logo-tagline">Quality Products</div>
+            </a>
+            
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="active">Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#branding">Branding</a>
+                            <a href="#events">Events</a>
+                            <a href="#production">Production</a>
+                            <a href="#pr-media">PR & Media Relations</a>
+                            <a href="#web-development">Web Development</a>
+                        </div>
+                    </li>
+                    <li><a href="ourwork.html">Our Work</a></li>
+                    <li><a href="courlients.html">Clients</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contactus.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="bottom-nav">
+        <ul class="bottom-nav-items">
+            <li>
+                <a href="index.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="services.html" class="bottom-nav-item active">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+                    </svg>
+                    <span>Services</span>
+                </a>
+            </li>
+            <li>
+                <a href="ourwork.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z"/>
+                    </svg>
+                    <span>Our Work</span>
+                </a>
+            </li>
+            <li>
+                <a href="ourclients.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                    </svg>
+                    <span>Clients</span>
+                </a>
+            </li>
+            <li>
+                <a href="contactus.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span>Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="aboutus.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                    </svg>
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+     :root {
+    --primary-pink: #ff3366;
+    --primary-blue: #3366ff;
+    --dark-blue: #001a33;
+    --gradient: linear-gradient(135deg, #000000, var(--dark-blue), var(--primary-blue));
+    --mobile-gradient: linear-gradient(135deg, #000000, var(--dark-blue), var(--primary-blue));
+    --glow-color: rgba(51, 102, 255, 0.7);
+}
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Desktop Header - Glass Effect with Dynamic Glow */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1cm;
+            z-index: 1000;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            animation: glowPulse 4s infinite alternate;
+            background: var(--gradient);
+            animation: glowPulseBlue 4s infinite alternate;
+        }
+        
+      /* Update glow animation for blue */
+        @keyframes glowPulseBlue {
+            0% {
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3), 0 0 10px var(--glow-color);
+            }
+            50% {
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color);
+            }
+            100% {
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3), 0 0 15px var(--glow-color);
+            }
+        }
+        
+        header.scrolled {
+            padding: 3px 0;
+            background: rgba(0, 0, 0, 0.9);
+            animation: glowPulse 2s infinite alternate;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            height: 100%;
+        }
+        
+        .logo img {
+            height: 30px;
+            margin-right: 8px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 5px var(--glow-color);
+        }
+        
+        .logo-tagline {
+            font-size: 10px;
+            margin-left: 8px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            height: 100%;
+            align-items: center;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-pink);
+            box-shadow: 0 0 5px var(--primary-pink);
+            transition: width 0.3s ease;
+        }
+   /* Update hover and active states for blue theme */
+            nav ul li a:hover {
+                color: var(--primary-blue);
+                text-shadow: 0 0 5px var(--glow-color);
+            }
+
+            nav ul li a:after {
+                background: var(--primary-blue);
+                box-shadow: 0 0 5px var(--primary-blue);
+            }
+
+            nav ul li a.active {
+                color: var(--primary-blue);
+            }
+        nav ul li a.active:after {
+            width: 100%;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            min-width: 200px;
+            padding: 10px 0;
+            border-radius: 8px;
+            top: 100%;
+            left: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--glow-color);
+            z-index: 1001;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 8px 20px;
+            margin: 0;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+      .dropdown-content a:hover {
+    background-color: rgba(51, 102, 255, 0.2);
+    color: var(--primary-blue);
+}
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1002;
+            padding: 5px;
+        }
+        
+        /* Mobile Bottom Navigation - Glass Effect with Dynamic Glow */
+       .bottom-nav {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: var(--mobile-gradient);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+        padding: clamp(8px, 2vw, 12px) 0; /* Auto-adjusting padding */
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        animation: glowPulseBlue 4s infinite alternate;
+        padding: 0 clamp(5px, 2vw, 15px); /* Responsive padding */
+}
+        .bottom-nav-items {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+        }
+        
+     .bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(10px, 2.5vw, 12px); /* Auto-scaling font size */
+    transition: all 0.3s ease;
+    padding: clamp(3px, 1vw, 5px) clamp(5px, 2vw, 10px); /* Responsive padding */
+    border-radius: 10px;
+    flex: 1;
+    max-width: min(20%, 80px); /* Limit max width */
+    min-width: 45px; /* Ensure minimum touch target */
+}
+        .bottom-nav-item svg {
+    width: clamp(18px, 6vw, 24px); /* Auto-scaling icons */
+    height: clamp(18px, 6vw, 24px);
+    margin-bottom: clamp(3px, 1vw, 5px); /* Responsive spacing */
+    fill: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+        
+       .bottom-nav-item.active {
+    color: var(--primary-blue);
+    background-color: rgba(51, 102, 255, 0.2);
+}
+       .bottom-nav-item.active svg {
+    fill: var(--primary-blue);
+}
+        
+        .bottom-nav-item:hover {
+    color: var(--primary-blue);
+    background-color: rgba(51, 102, 255, 0.1);
+}
+      .bottom-nav-item:hover svg {
+    fill: var(--primary-blue);
+}
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            /* Hide desktop navigation on tablets and mobile */
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            /* Adjust header for mobile */
+            header {
+                height: 1cm;
+                padding: 3px 0;
+            }
+            
+            .logo img {
+                height: 28px;
+            }
+            
+            .logo-text {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Show bottom navigation on mobile */
+            .bottom-nav {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .bottom-nav-item {
+                font-size: 10px;
+                padding: 5px 5px;
+            }
+            
+            .bottom-nav-item svg {
+                width: 20px;
+                height: 20px;
+            }
+            
+            /* Further adjustments for very small screens */
+            header {
+                height: 1cm;
+                padding: 2px 0;
+            }
+            
+            .logo img {
+                height: 25px;
+            }
+            
+            .logo-text {
+                font-size: 18px;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 18px;
+            }
+        }
+    </style>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('nav') && !event.target.closest('.mobile-menu-btn')) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        // Bottom navigation active state
+        const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+        
+        // Set active item based on current page
+        function setActiveNavItem() {
+            const currentPage = window.location.pathname.split('/').pop();
+            
+            bottomNavItems.forEach(item => {
+                const itemHref = item.getAttribute('href');
+                if (itemHref === currentPage) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize active state
+        setActiveNavItem();
+
+        // Update active state on page load
+        window.addEventListener('load', setActiveNavItem);
+
+        // Handle mobile viewport height for bottom nav
+        function setViewportHeight() {
+            if (window.innerWidth <= 768) {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+        }
+
+        // Initialize and update on resize
+        setViewportHeight();
+        window.addEventListener('resize', setViewportHeight);
+        window.addEventListener('orientationchange', setViewportHeight);
+
+        // Smooth scroll to top when home is clicked and already on home
+        document.addEventListener('DOMContentLoaded', function() {
+            const homeLink = document.querySelector('.bottom-nav-item[href="index.html"]');
+            
+            if (homeLink) {
+                homeLink.addEventListener('click', function(e) {
+                    if (window.location.pathname.endsWith('index.html') || 
+                        window.location.pathname === '/' || 
+                        window.location.pathname.endsWith('/')) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</section>
+</body>
+</html>
