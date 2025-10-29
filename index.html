@@ -1139,6 +1139,298 @@
         });
     </script>
 </section>
+    <!-- Mobile Video Background Solution Section -->
+<section class="hero">
+  <!-- Video Background with Mobile Fallbacks -->
+  <div class="video-container">
+    <!-- Main video for desktop/tablet -->
+    <video autoplay muted loop playsinline preload="auto" class="hero-video" id="heroVideo">
+      <source src="img/homescreenvideo.mp4" type="video/mp4">
+      <source src="img/homescreenvideo.webm" type="video/webm">
+      Your browser does not support HTML5 video.
+    </video>
+    
+    <!-- Fallback image for mobile -->
+    <div class="hero-fallback" id="heroFallback"></div>
+    
+    <!-- Video controls for mobile -->
+    <div class="video-controls" id="videoControls">
+      <button class="video-toggle" id="videoToggle">
+        <i class="fas fa-play"></i>
+        <span>Play Video</span>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Content overlay -->
+  <div class="hero-overlay"></div>
+  
+  <!-- Hero content -->
+  <div class="hero-content">
+    <h1 class="hero-tagline reveal">Your Vision, Elevated, Experience More</h1>
+    <p class="hero-description reveal">We transform ideas into immersive visual experiences through cinematic storytelling, innovative design, and cutting-edge production.</p>
+    <a href="services.html" class="cta-button reveal">Dive In to The Istazz Show</a>
+  </div>
+</section>
+
+<style>
+/* Video Container */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Main Video */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Fallback Image */
+.hero-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/IMG-20251013-WA0011_grb4up.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  display: none;
+}
+
+/* Video Controls */
+.video-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 3;
+  display: none;
+}
+
+.video-toggle {
+  background: rgba(255, 51, 102, 0.8);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.video-toggle:hover {
+  background: rgba(255, 51, 102, 1);
+  transform: translateY(-2px);
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  /* Hide video by default on mobile */
+  .hero-video {
+    display: none;
+  }
+  
+  /* Show fallback image */
+  .hero-fallback {
+    display: block;
+  }
+  
+  /* Show video controls on mobile */
+  .video-controls {
+    display: block;
+  }
+  
+  /* When video is playing on mobile */
+  .video-playing .hero-video {
+    display: block;
+  }
+  
+  .video-playing .hero-fallback {
+    display: none;
+  }
+}
+
+/* Large mobile devices (tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .video-controls {
+    display: block;
+  }
+}
+
+/* Hero section base styles */
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.9));
+  z-index: 2;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 3;
+}
+
+.hero-tagline {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ff3366, #3366ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.8;
+  line-height: 1.6;
+  color: #666;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #ff3366, #3366ff);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 51, 102, 0.4);
+}
+
+/* Animation classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<script>
+// Mobile Video Handling
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('heroVideo');
+  const fallback = document.getElementById('heroFallback');
+  const toggleBtn = document.getElementById('videoToggle');
+  const heroSection = document.querySelector('.hero');
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  // Check if we're on a mobile device
+  if (isMobile) {
+    // Try to autoplay video on mobile (may not work due to restrictions)
+    const playPromise = video.play();
+    
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        // Video autoplay succeeded
+        console.log('Video autoplay successful on mobile');
+        heroSection.classList.add('video-playing');
+        fallback.style.display = 'none';
+        toggleBtn.innerHTML = '<i class="fas fa-pause"></i><span>Pause Video</span>';
+      }).catch(error => {
+        // Video autoplay failed, show fallback and controls
+        console.log('Video autoplay blocked on mobile');
+        video.style.display = 'none';
+        fallback.style.display = 'block';
+        toggleBtn.style.display = 'flex';
+      });
+    }
+  }
+  
+  // Video toggle functionality
+  toggleBtn.addEventListener('click', function() {
+    if (video.paused) {
+      // Play video
+      video.play().then(() => {
+        heroSection.classList.add('video-playing');
+        video.style.display = 'block';
+        fallback.style.display = 'none';
+        toggleBtn.innerHTML = '<i class="fas fa-pause"></i><span>Pause Video</span>';
+      }).catch(error => {
+        console.log('Video play failed:', error);
+        // If play fails, keep fallback visible
+        fallback.style.display = 'block';
+        video.style.display = 'none';
+      });
+    } else {
+      // Pause video
+      video.pause();
+      heroSection.classList.remove('video-playing');
+      toggleBtn.innerHTML = '<i class="fas fa-play"></i><span>Play Video</span>';
+    }
+  });
+  
+  // Handle video ending
+  video.addEventListener('ended', function() {
+    // Restart video for seamless loop
+    video.currentTime = 0;
+    video.play();
+  });
+  
+  // Scroll reveal animation
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    
+    reveals.forEach(element => {
+      const windowHeight = window.innerHeight;
+      const elementTop = element.getBoundingClientRect().top;
+      const elementVisible = 150;
+      
+      if (elementTop < windowHeight - elementVisible) {
+        element.classList.add('active');
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll(); // Initial check
+});
+</script>
     <main>
         <!-- Hero Section -->
         <section class="hero">
