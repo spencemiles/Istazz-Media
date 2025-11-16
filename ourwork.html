@@ -1,0 +1,3168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="https://freeimagehost.com/images/favcon003.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Istazz Media's gallery featuring creative photography, studio scenes, and professional media production work from Kenya." />
+  <meta name="keywords" content="Istazz Media, media production, photography, videography, Kenya creative studio" />
+  <title>Istazz Media Gallery</title>
+  
+  <!-- CSS FILES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <style>
+    /* All your existing CSS remains the same */
+    :root {
+      --primary: #ff3366;
+      --primary-dark: #e62e5c;
+      --secondary: #3366ff;
+      --secondary-dark: #2a55d6;
+      --accent: #00cc99;
+      --accent-dark: #00b386;
+      --dark: #0d0d0d;
+      --dark-light: #1a1a1a;
+      --light: #f9f9f9;
+      --light-dark: #e9e9e9;
+      --text: #333333;
+      --text-light: #666666;
+      --text-white: #ffffff;
+      --text-white-light: #cccccc;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.2);
+      --radius: 10px;
+      --transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] {
+      --light: #0d0d0d;
+      --light-dark: #1a1a1a;
+      --text: #ffffff;
+      --text-light: #cccccc;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      transition: var(--transition);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero Section with Video Background */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 60px;
+      overflow: hidden;
+    }
+
+    .hero-video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 51, 102, 0.4) 0%,
+        rgba(0, 0, 0, 0.8) 50%,
+        rgba(51, 102, 255, 0.4) 100%
+      );
+      z-index: 1;
+      mix-blend-mode: overlay;
+    }
+
+    .hero-video-overlay::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        45deg,
+        rgba(255, 20, 147, 0.3) 0%,
+        rgba(255, 51, 102, 0.2) 25%,
+        rgba(37, 99, 235, 0.3) 75%,
+        rgba(0, 204, 153, 0.2) 100%
+      );
+      z-index: 2;
+    }
+
+    /* Ensure video covers the entire section properly */
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Add a fallback background in case video doesn't load */
+    .hero-video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 50%, var(--secondary) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-small-title {
+      font-size: 14px;
+      color: var(--text-white-light);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      display: block;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-white-light);
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .hero-form {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: var(--shadow-dark);
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      color: var(--text-white-light);
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 5px;
+      padding: 12px 15px;
+      height: auto;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 0 3px rgba(255, 51, 102, 0.3);
+    }
+
+    .custom-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+
+    .custom-btn:hover {
+      background: var(--primary-dark);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+    }
+
+    .custom-btn-secondary {
+      background: var(--secondary);
+    }
+
+    .custom-btn-secondary:hover {
+      background: var(--secondary-dark);
+      box-shadow: 0 5px 15px rgba(51, 102, 255, 0.4);
+    }
+
+    .custom-btn-accent {
+      background: var(--accent);
+    }
+
+    .custom-btn-accent:hover {
+      background: var(--accent-dark);
+      box-shadow: 0 5px 15px rgba(0, 204, 153, 0.4);
+    }
+
+    .search-results {
+      margin-top: 1rem;
+      color: var(--text-white-light);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Filters Section */
+    .filters-section {
+      padding: 30px 0;
+      background: var(--light-dark);
+      position: sticky;
+      top: 80px;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      background: var(--light);
+      color: var(--text);
+      border: 1px solid var(--light-dark);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: var(--transition);
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .filter-select {
+      background: var(--light);
+      color: var(--text);
+      border: 1px solid var(--light-dark);
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: var(--transition);
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .filter-select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(255, 51, 102, 0.2);
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+      padding: 60px 0;
+    }
+
+    .gallery-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .gallery-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+      position: relative;
+      display: inline-block;
+    }
+
+    .gallery-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+
+    .view-options {
+      display: flex;
+      gap: 10px;
+    }
+
+    .view-btn {
+      background: var(--light);
+      color: var(--text-light);
+      border: 1px solid var(--light-dark);
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .view-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-grid.masonry {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .gallery-grid.list {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .media-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      cursor: pointer;
+      background: var(--light);
+    }
+
+    .gallery-grid.masonry .media-item {
+      height: auto;
+    }
+
+    .gallery-grid:not(.masonry) .media-item {
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-grid.list .media-item {
+      height: 120px;
+      display: flex;
+    }
+
+    .media-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-dark);
+    }
+
+    .media-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .gallery-grid.list .media-image {
+      width: 200px;
+      height: 100%;
+      flex-shrink: 0;
+    }
+
+    .media-item:hover .media-image {
+      transform: scale(1.05);
+    }
+
+    .video-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: var(--transition);
+      font-size: 14px;
+    }
+
+    .media-item:hover .video-icon {
+      background: var(--primary);
+      transform: scale(1.1);
+    }
+
+    .media-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      color: white;
+      padding: 15px;
+      transform: translateY(100%);
+      transition: var(--transition);
+    }
+
+    .gallery-grid.list .media-content {
+      position: static;
+      transform: none;
+      background: none;
+      color: var(--text);
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .media-item:hover .media-content {
+      transform: translateY(0);
+    }
+
+    .media-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .gallery-grid.list .media-title {
+      white-space: normal;
+      font-size: 1.1rem;
+    }
+
+    .media-description {
+      font-size: 0.8rem;
+      color: var(--text-white-light);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .gallery-grid.list .media-description {
+      color: var(--text-light);
+      -webkit-line-clamp: 1;
+    }
+
+    .media-meta {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+      font-size: 0.7rem;
+      color: var(--text-white-light);
+    }
+
+    .gallery-grid.list .media-meta {
+      color: var(--text-light);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Loading States */
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      font-size: 1.2rem;
+      color: var(--text-light);
+      grid-column: 1 / -1;
+    }
+
+    .loading-spinner {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s ease-in-out infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .skeleton-item {
+      background: var(--light-dark);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery-grid:not(.masonry) .skeleton-item {
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-grid.masonry .skeleton-item {
+      height: 200px;
+    }
+
+    .gallery-grid.list .skeleton-item {
+      height: 120px;
+    }
+
+    .skeleton-item::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      animation: shimmer 1.5s infinite;
+    }
+
+    @keyframes shimmer {
+      100% {
+        left: 100%;
+      }
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: var(--light);
+      border-radius: 15px;
+      width: 90%;
+      max-width: 1000px;
+      max-height: 90vh;
+      overflow: hidden;
+      position: relative;
+      transform: scale(0.8);
+      opacity: 0;
+      transition: var(--transition);
+      box-shadow: 0 0 50px rgba(255, 51, 102, 0.3);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid var(--light-dark);
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .modal-action-btn {
+      background: var(--light-dark);
+      color: var(--text);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modal-action-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .close-modal {
+      background: var(--primary);
+      color: white;
+    }
+
+    .close-modal:hover {
+      background: var(--primary-dark);
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .modal-media-container {
+      position: relative;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--dark);
+      min-height: 400px;
+    }
+
+    .modal-media {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .modal-info {
+      padding: 20px;
+      border-top: 1px solid var(--light-dark);
+    }
+
+    .modal-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--light-dark);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+    }
+
+    .meta-item i {
+      color: var(--primary);
+    }
+
+    .modal-description {
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      color: var(--text);
+    }
+
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: rgba(255, 51, 102, 0.1);
+      color: var(--text);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      border: 1px solid rgba(255, 51, 102, 0.3);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .tag:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .modal-navigation {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      pointer-events: none;
+    }
+
+    .nav-btn {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      pointer-events: all;
+    }
+
+    .nav-btn:hover {
+      background: var(--primary);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark);
+      color: var(--text-white);
+      padding: 60px 0 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-section h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--text-white-light);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-white-light);
+      font-size: 0.9rem;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* Utility Classes */
+    .text-center {
+      text-align: center;
+    }
+
+    .text-primary {
+      color: var(--primary) !important;
+    }
+
+    .mb-0 {
+      margin-bottom: 0 !important;
+    }
+
+    .mt-30 {
+      margin-top: 30px;
+    }
+
+    .mb-30 {
+      margin-bottom: 30px;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .align-items-center {
+      align-items: center;
+    }
+
+    .justify-content-between {
+      justify-content: space-between;
+    }
+
+    /* Scroll to Top Button */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(255, 51, 102, 0.3);
+    }
+
+    .scroll-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    /* Toast Notifications */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background: var(--light);
+      color: var(--text);
+      padding: 15px 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 2000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: var(--transition);
+      max-width: 400px;
+    }
+
+    .toast.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast.success {
+      border-left: 4px solid var(--accent);
+    }
+
+    .toast.error {
+      border-left: 4px solid var(--primary);
+    }
+
+    .toast-icon {
+      font-size: 1.2rem;
+    }
+
+    .toast.success .toast-icon {
+      color: var(--accent);
+    }
+
+    .toast.error .toast-icon {
+      color: var(--primary);
+    }
+
+    /* Responsive Media Queries */
+    @media (max-width: 1200px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      }
+      
+      .gallery-grid.masonry {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+      
+      .hero-title {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-form {
+        padding: 20px;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+      
+      .gallery-grid.masonry {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      }
+      
+      .modal-body {
+        flex-direction: column;
+      }
+      
+      .modal-media-container {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: 80vh;
+        padding: 100px 0 40px;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 15px;
+      }
+      
+      .gallery-grid.masonry {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+      
+      .gallery-grid.list .media-item {
+        height: 100px;
+      }
+      
+      .gallery-grid.list .media-image {
+        width: 150px;
+      }
+      
+      .modal-content {
+        width: 95%;
+      }
+      
+      .modal-media {
+        height: 300px;
+      }
+      
+      .modal-meta {
+        gap: 10px;
+      }
+      
+      .meta-item {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-section {
+        min-height: 70vh;
+        padding: 90px 0 30px;
+      }
+      
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+      }
+      
+      .gallery-grid.masonry {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      }
+      
+      .gallery-grid.list .media-item {
+        height: 90px;
+      }
+      
+      .gallery-grid.list .media-image {
+        width: 120px;
+      }
+      
+      .gallery-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      
+      .view-options {
+        align-self: flex-end;
+      }
+      
+      .modal-body {
+        padding: 1rem;
+      }
+      
+      .modal-title {
+        font-size: 1.3rem;
+      }
+      
+      .modal-meta {
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .nav-btn {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      
+      .gallery-grid.masonry {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .gallery-grid.list .media-item {
+        height: 80px;
+      }
+      
+      .gallery-grid.list .media-image {
+        width: 100px;
+      }
+      
+      .media-content {
+        padding: 10px;
+      }
+      
+      .media-title {
+        font-size: 0.9rem;
+      }
+      
+      .media-description {
+        font-size: 0.7rem;
+      }
+      
+      .filter-group {
+        gap: 10px;
+      }
+      
+      .filter-btn, .filter-select {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .gallery-grid.masonry {
+        grid-template-columns: 1fr;
+      }
+      
+      .gallery-grid.list .media-item {
+        height: auto;
+        flex-direction: column;
+      }
+      
+      .gallery-grid.list .media-image {
+        width: 100%;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+ <section id="navigation-section">
+    <!-- Desktop Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
+                <div class="logo-text">Media</div>
+                <div class="logo-tagline">Quality Products</div>
+            </a>
+            
+         <nav>
+  <ul id="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li class="dropdown">
+      <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+      <div class="dropdown-content">
+        <a href="#branding">Branding</a>
+        <a href="#events">Events</a>
+        <a href="#production">Production</a>
+        <a href="#pr-media">PR & Media Relations</a>
+        <a href="#web-development">Web Development</a>
+      </div>
+    </li>
+    <li><a href="ourwork.html" class="active">Our Work</a></li>
+    <li><a href="ourclients.html">Clients</a></li>
+    <li><a href="aboutus.html">About Us</a></li>
+    <li><a href="contactus.html">Contact</a></li>
+  </ul>
+</nav>
+
+            
+           
+        </div>
+    </header>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="bottom-nav">
+        <ul class="bottom-nav-items">
+            <li>
+                <a href="index.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="services.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+                    </svg>
+                    <span>Services</span>
+                </a>
+            </li>
+            
+           <li>
+    <a href="ourwork.html" class="bottom-nav-item active">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z"/>
+        </svg>
+        <span>Our Work</span>
+    </a>
+</li>
+
+            <li>
+                <a href="ourclients.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                    </svg>
+                    <span>Clients</span>
+                </a>
+            </li>
+            <li>
+                <a href="contactus.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span>Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="aboutus.html" class="bottom-nav-item">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                    </svg>
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+<style>
+    /* Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    :root {
+        --primary-pink: #ff3366;
+        --primary-blue: #2563eb; /* Strong medium blue */
+        --hot-pink: #ff1493;
+        --gradient: linear-gradient(135deg, var(--hot-pink), var(--primary-blue));
+        --mobile-gradient: linear-gradient(135deg, var(--hot-pink), var(--primary-blue));
+        --glow-color: rgba(255, 20, 147, 0.7);
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        
+    }
+    
+    /* Desktop Header - Glass Effect with Dynamic Glow */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1cm;
+        z-index: 1000;
+        padding: 5px 0;
+        transition: all 0.3s ease;
+        background: var(--gradient);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        animation: glowPulse 4s infinite alternate;
+    }
+    
+    /* Update glow animation for hot pink */
+    @keyframes glowPulse {
+        0% {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3), 0 0 10px var(--glow-color);
+        }
+        50% {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color);
+        }
+        100% {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3), 0 0 15px var(--glow-color);
+        }
+    }
+    
+    header.scrolled {
+        padding: 3px 0;
+        background: var(--gradient);
+    }
+    
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        height: 100%;
+    }
+    
+    .logo img {
+        height: 30px;
+        margin-right: 8px;
+        filter: brightness(0) invert(1);
+    }
+    
+    .logo-text {
+        font-size: 22px;
+        font-weight: 700;
+        color: white;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    
+    .logo-tagline {
+        font-size: 10px;
+        margin-left: 8px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    
+    nav ul {
+        display: flex;
+        list-style: none;
+        height: 100%;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin-left: 20px;
+        position: relative;
+    }
+    
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 5px 0;
+    }
+    
+    nav ul li a:after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: white;
+        box-shadow: 0 0 5px white;
+        transition: width 0.3s ease;
+    }
+    
+    /* Update hover and active states for hot pink theme */
+    nav ul li a:hover {
+        color: white;
+        text-shadow: 0 0 5px white;
+    }
+
+    nav ul li a.active {
+        color: white;
+    }
+    
+    nav ul li a.active:after {
+        width: 100%;
+    }
+    
+    .dropdown {
+        position: relative;
+    }
+    
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background: var(--gradient);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    min-width: 200px;
+    padding: 10px 0;
+    border-radius: 8px;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--glow-color);
+    z-index: 2147483647 !important; /* MAXIMUM POSSIBLE Z-INDEX */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    .dropdown-content a {
+        display: block;
+        padding: 8px 20px;
+        margin: 0;
+        color: white;
+        transition: all 0.3s ease;
+    }
+    
+    .dropdown-content a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+    
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 1002;
+        padding: 5px;
+    }
+    
+    /* Mobile Bottom Navigation - Glass Effect with Dynamic Glow */
+    .bottom-nav {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: var(--mobile-gradient);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+        padding: clamp(8px, 2vw, 12px) 0; /* Auto-adjusting padding */
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        animation: glowPulse 4s infinite alternate;
+        padding: 0 clamp(5px, 2vw, 15px); /* Responsive padding */
+    }
+    
+    .bottom-nav-items {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+    }
+    
+    .bottom-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: clamp(10px, 2.5vw, 12px); /* Auto-scaling font size */
+        transition: all 0.3s ease;
+        padding: clamp(3px, 1vw, 5px) clamp(5px, 2vw, 10px); /* Responsive padding */
+        border-radius: 10px;
+        flex: 1;
+        max-width: min(20%, 80px); /* Limit max width */
+        min-width: 45px; /* Ensure minimum touch target */
+    }
+    
+    .bottom-nav-item svg {
+        width: clamp(18px, 6vw, 24px); /* Auto-scaling icons */
+        height: clamp(18px, 6vw, 24px);
+        margin-bottom: clamp(3px, 1vw, 5px); /* Responsive spacing */
+        fill: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+    }
+    
+    .bottom-nav-item.active {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .bottom-nav-item.active svg {
+        fill: white;
+    }
+    
+    .bottom-nav-item:hover {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .bottom-nav-item:hover svg {
+        fill: white;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+        /* Hide desktop navigation on tablets and mobile */
+        nav ul {
+            display: none;
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+        }
+        
+        /* Adjust header for mobile */
+        header {
+            height: 1cm;
+            padding: 3px 0;
+        }
+        
+        .logo img {
+            height: 28px;
+        }
+        
+        .logo-text {
+            font-size: 20px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        /* Show bottom navigation on mobile */
+        .bottom-nav {
+            display: flex;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .bottom-nav-item {
+            font-size: 10px;
+            padding: 5px 5px;
+        }
+        
+        .bottom-nav-item svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* Further adjustments for very small screens */
+        header {
+            height: 1cm;
+            padding: 2px 0;
+        }
+        
+        .logo img {
+            height: 25px;
+        }
+        
+        .logo-text {
+            font-size: 18px;
+        }
+        
+        .mobile-menu-btn {
+            font-size: 18px;
+        }
+    }
+</style>
+
+   <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    mobileMenuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        this.innerHTML = navMenu.classList.contains('active') ? 
+            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('nav') && !event.target.closest('.mobile-menu-btn')) {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+    });
+
+    // ULTRA HIGH PRIORITY DROPDOWN FUNCTIONALITY
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    // Function to force dropdown to absolute top z-index
+    function forceDropdownToTop(dropdownContent) {
+        if (!dropdownContent) return;
+        
+        // Set the highest possible z-index
+        dropdownContent.style.zIndex = '2147483647'; // Maximum z-index value
+        
+        // Also ensure parent elements don't interfere
+        let parent = dropdownContent.parentElement;
+        while (parent && parent !== document.body) {
+            if (parent.style.zIndex) {
+                parent.style.zIndex = '2147483646';
+            }
+            parent = parent.parentElement;
+        }
+        
+        // Force display and position
+        dropdownContent.style.display = 'block';
+        dropdownContent.style.position = 'absolute';
+    }
+
+    // Function to close all dropdowns
+    function closeAllDropdowns() {
+        document.querySelectorAll('.dropdown-content').forEach(content => {
+            content.style.display = 'none';
+        });
+    }
+
+    dropdowns.forEach(dropdown => {
+        // Desktop hover behavior
+        dropdown.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 992) {
+                closeAllDropdowns();
+                const dropdownContent = this.querySelector('.dropdown-content');
+                forceDropdownToTop(dropdownContent);
+            }
+        });
+        
+        dropdown.addEventListener('mouseleave', function(e) {
+            if (window.innerWidth > 992) {
+                // Only hide if not hovering over dropdown content
+                const dropdownContent = this.querySelector('.dropdown-content');
+                if (dropdownContent && !dropdownContent.matches(':hover')) {
+                    dropdownContent.style.display = 'none';
+                }
+            }
+        });
+
+        // Mobile click behavior
+        dropdown.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const dropdownContent = this.querySelector('.dropdown-content');
+                const isVisible = dropdownContent.style.display === 'block';
+                
+                closeAllDropdowns();
+                
+                if (!isVisible) {
+                    forceDropdownToTop(dropdownContent);
+                }
+            }
+        });
+
+        // Also handle dropdown content directly
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        if (dropdownContent) {
+            dropdownContent.addEventListener('mouseenter', function() {
+                if (window.innerWidth > 992) {
+                    forceDropdownToTop(this);
+                }
+            });
+            
+            dropdownContent.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent closing when clicking inside
+            });
+        }
+    });
+
+    // Close dropdowns when clicking anywhere else
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown') && !event.target.closest('.dropdown-content')) {
+            closeAllDropdowns();
+        }
+    });
+
+    // Close dropdowns when scrolling (optional - remove if you want them to stay open)
+    window.addEventListener('scroll', function() {
+        closeAllDropdowns();
+    });
+
+    // Ensure dropdowns stay on top during any interaction
+    document.addEventListener('mousedown', function() {
+        document.querySelectorAll('.dropdown-content').forEach(content => {
+            if (content.style.display === 'block') {
+                forceDropdownToTop(content);
+            }
+        });
+    });
+
+    // Nuclear option: Periodically check and force z-index
+    setInterval(() => {
+        document.querySelectorAll('.dropdown-content').forEach(content => {
+            if (content.style.display === 'block') {
+                forceDropdownToTop(content);
+            }
+        });
+    }, 100);
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        closeAllDropdowns();
+        if (window.innerWidth > 992) {
+            // Reset hover behavior
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                content.style.display = '';
+            });
+        }
+    });
+
+    // Bottom navigation active state
+    const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+    
+    // Set active item based on current page
+    function setActiveNavItem() {
+        const currentPage = window.location.pathname.split('/').pop();
+        
+        bottomNavItems.forEach(item => {
+            const itemHref = item.getAttribute('href');
+            if (itemHref === currentPage) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
+    // Initialize active state
+    setActiveNavItem();
+
+    // Update active state on page load
+    window.addEventListener('load', setActiveNavItem);
+
+    // Handle mobile viewport height for bottom nav
+    function setViewportHeight() {
+        if (window.innerWidth <= 768) {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+    }
+
+    // Initialize and update on resize
+    setViewportHeight();
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', setViewportHeight);
+
+    // Smooth scroll to top when home is clicked and already on home
+    document.addEventListener('DOMContentLoaded', function() {
+        const homeLink = document.querySelector('.bottom-nav-item[href="index.html"]');
+        
+        if (homeLink) {
+            homeLink.addEventListener('click', function(e) {
+                if (window.location.pathname.endsWith('index.html') || 
+                    window.location.pathname === '/' || 
+                    window.location.pathname.endsWith('/')) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+    });
+</script>
+</section>
+
+  <main>
+    <!-- Hero Section with Video Background -->
+    <section class="hero-section" id="section_1">
+      <div class="hero-video-container">
+        <video autoplay muted loop playsinline preload="auto" class="hero-video">
+          <!-- Fallback video source - replace with your actual video -->
+          <source src="img/homescreenvideo.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <div class="hero-video-overlay"></div>
+      </div>
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-12 mx-auto">
+            <div class="hero-content text-center">
+              <small class="section-small-title">Welcome to Istazz Media <i class="bi-camera"></i></small>
+
+              <h1 class="hero-title text-white mt-2 mb-4">Creative Photography & Media Production</h1>
+              
+              <p class="hero-subtitle">Discover stunning visual stories captured by our talented team of photographers and videographers based in Kenya. From breathtaking landscapes to intimate portraits, explore our collection of creative work.</p>
+
+              <form class="custom-form hero-form" id="searchForm">
+                <div class="row">
+                  <div class="col-lg-8 col-md-6 col-12">
+                    <div class="input-group align-items-center">
+                      <label for="searchInput">Search Media</label>
+                      <input type="text" name="searchInput" id="searchInput" class="form-control" placeholder="Search by title, description, tags..." required>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 col-12">
+                    <button type="submit" class="form-control custom-btn">
+                      <i class="bi-search"></i> Search
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              <div class="search-results" id="searchResults"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section" id="filters">
+      <div class="container">
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all">All Media</button>
+          <button class="filter-btn" data-filter="photography">Photography</button>
+          <button class="filter-btn" data-filter="videography">Videography</button>
+          <button class="filter-btn" data-filter="events">Events</button>
+          <button class="filter-btn" data-filter="portraits">Portraits</button>
+          <select class="filter-select" id="sortSelect">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="title">Title A-Z</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="section_2">
+      <div class="container">
+        <div class="gallery-header">
+          <h2 class="gallery-title">Media Gallery</h2>
+          <div class="view-options">
+            <button class="view-btn active" data-view="grid"><i class="bi-grid-3x3-gap"></i></button>
+            <button class="view-btn" data-view="masonry"><i class="bi-grid-1x2"></i></button>
+            <button class="view-btn" data-view="list"><i class="bi-list"></i></button>
+          </div>
+        </div>
+        
+        <div class="gallery-grid" id="gallery">
+          <!-- Skeleton loading items -->
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section py-5" id="section_3">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-12 mb-4 mb-lg-0">
+            <h2 class="gallery-title mb-4">About Istazz Media</h2>
+            <p class="mb-4">Based in Nairobi, Kenya, Istazz Media is a creative studio specializing in photography, videography, and media production. Our team of talented professionals is dedicated to capturing moments that tell compelling stories.</p>
+            <p class="mb-4">With years of experience in the industry, we've worked with clients across various sectors including corporate, events, fashion, and commercial projects. Our passion for visual storytelling drives us to create content that resonates with audiences.</p>
+            <div class="d-flex gap-3">
+<a href="contactus.html">
+  <button class="custom-btn custom-btn-secondary">Contact Us</button>
+</a>
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="about-image">
+              <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Istazz Media Team" class="img-fluid rounded shadow">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+ <footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <!-- Company Info Section -->
+      <div class="footer-section">
+        <div class="footer-logo">
+          <img src="https://res.cloudinary.com/dekdxx6yx/image/upload/v1760854267/logo_fx72mz.webp" alt="Istazz Media Logo">
+          <div class="logo-text">Istazz Media</div>
+        </div>
+        <p class="footer-description">Creative photography and media production studio based in Kenya, specializing in capturing moments that tell compelling stories.</p>
+        
+        <div class="newsletter">
+          <h4>Subscribe to Our Newsletter</h4>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email address">
+            <button class="newsletter-btn">Subscribe</button>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#" class="social-link" aria-label="Facebook">
+              <i class="bi-facebook"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <i class="bi-instagram"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+              <i class="bi-twitter"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="YouTube">
+              <i class="bi-youtube"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <i class="bi-linkedin"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Pinterest">
+              <i class="bi-pinterest"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services Section -->
+      <div class="footer-section">
+        <h3>Our Services</h3>
+        <ul class="footer-links">
+          <li><a href="#"><i class="bi-chevron-right"></i> Brand Photography</a></li>
+          <li><a href="#"><i class="bi-chevron-right"></i> Corporate Events</a></li>
+          <li><a href="#"><i class="bi-chevron-right"></i> Product Photography</a></li>
+          <li><a href="#"><i class="bi-chevron-right"></i> Video Production</a></li>
+          <li><a href="#"><i class="bi-chevron-right"></i> Drone Photography</a></li>
+          <li><a href="#"><i class="bi-chevron-right"></i> Photo Editing</a></li>
+          <li><a href="#"><i class="bi-chevron-right"></i> Media Training</a></li>
+          <li><a href="#"><i class="bi-chevron-right"></i> Social Media Content</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links Section -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="bi-chevron-right"></i> Home</a></li>
+          <li><a href="services.html"><i class="bi-chevron-right"></i> Services</a></li>
+          <li><a href="ourwork.html"><i class="bi-chevron-right"></i> Portfolio</a></li>
+          <li><a href="ourclients.html"><i class="bi-chevron-right"></i> Our Clients</a></li>
+          <li><a href="aboutus.html"><i class="bi-chevron-right"></i> About Us</a></li>
+          <li><a href="contactus.html"><i class="bi-chevron-right"></i> Contact</a></li>
+          <li><a href="#"><i class="bi-chevron-right"></i> Blog</a></li>
+          <li><a href="#"><i class="bi-chevron-right"></i> Testimonials</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Support Section -->
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul class="footer-links contact-info">
+          <li>
+            <a href="#">
+              <i class="bi-geo-alt"></i>
+              <span>Nairobi, Kenya<br><small>Westlands, ABC Building</small></span>
+            </a>
+          </li>
+          <li>
+            <a href="tel:+254712345678">
+              <i class="bi-telephone"></i>
+              <span>+254 712 345 678<br><small>Mon-Fri, 8AM-6PM</small></span>
+            </a>
+          </li>
+          <li>
+            <a href="tel:+254734567890">
+              <i class="bi-phone"></i>
+              <span>+254 734 567 890<br><small>Emergency Support</small></span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:info@istazzmedia.com">
+              <i class="bi-envelope"></i>
+              <span>info@istazzmedia.com</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:support@istazzmedia.com">
+              <i class="bi-headset"></i>
+              <span>support@istazzmedia.com</span>
+            </a>
+          </li>
+        </ul>
+        
+        <div class="business-hours">
+          <h4>Business Hours</h4>
+          <ul class="hours-list">
+            <li><span>Monday - Friday:</span> <span>8:00 AM - 6:00 PM</span></li>
+            <li><span>Saturday:</span> <span>9:00 AM - 4:00 PM</span></li>
+            <li><span>Sunday:</span> <span>Closed</span></li>
+            <li><span>Emergency:</span> <span>24/7 Available</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <div class="copyright">
+          <p>&copy; 2025 Istazz Media. All rights reserved.</p>
+        </div>
+        
+        <div class="footer-legal">
+          <ul class="legal-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+        
+        <div class="payment-methods">
+          <span>We Accept:</span>
+          <div class="payment-icons">
+            <i class="bi-credit-card" title="Credit Card"></i>
+            <i class="bi-paypal" title="PayPal"></i>
+            <i class="bi-currency-bitcoin" title="Bitcoin"></i>
+            <i class="bi-bank" title="Bank Transfer"></i>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-credits">
+        <p>Designed with <i class="bi-heart-fill" style="color: var(--primary);"></i> by Istazz Media Team</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* Footer Styles */
+.footer {
+  background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+  color: var(--text-white);
+  padding: 60px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.footer-section h4 {
+  font-size: 1rem;
+  margin: 20px 0 15px;
+  color: var(--text-white-light);
+  font-weight: 600;
+}
+
+/* Logo Section */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer-logo img {
+  height: 40px;
+  margin-right: 12px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-logo .logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.footer-description {
+  color: var(--text-white-light);
+  line-height: 1.7;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+/* Newsletter */
+.newsletter {
+  margin-bottom: 25px;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 10px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 0.9rem;
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.newsletter-form input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.newsletter-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0 20px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.newsletter-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* Social Links */
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  transition: var(--transition);
+  font-size: 1.1rem;
+}
+
+.social-link:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+}
+
+/* Footer Links */
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-white-light);
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.footer-links a i {
+  margin-top: 3px;
+  color: var(--primary);
+  font-size: 0.8rem;
+}
+
+.footer-links a:hover {
+  color: white;
+  padding-left: 5px;
+}
+
+/* Contact Info */
+.contact-info li a {
+  align-items: flex-start;
+}
+
+.contact-info span small {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+/* Business Hours */
+.business-hours {
+  margin-top: 25px;
+}
+
+.hours-list {
+  list-style: none;
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: var(--text-white-light);
+}
+
+.hours-list li span:first-child {
+  font-weight: 500;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 25px 0;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.copyright p {
+  color: var(--text-white-light);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.legal-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.legal-links a {
+  color: var(--text-white-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.legal-links a:hover {
+  color: white;
+}
+
+.payment-methods {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-white-light);
+  font-size: 0.9rem;
+}
+
+.payment-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.payment-icons i {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.payment-icons i:hover {
+  opacity: 1;
+  color: var(--primary);
+}
+
+.footer-credits {
+  text-align: center;
+  color: var(--text-white-light);
+  font-size: 0.85rem;
+}
+
+.footer-credits i {
+  margin: 0 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 0;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .legal-links {
+    justify-content: center;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+  
+  .newsletter-form input {
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .newsletter-btn {
+    border-radius: 5px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+  
+  .legal-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .payment-methods {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+</style>
+
+<script>
+// Newsletter form submission
+document.addEventListener('DOMContentLoaded', function() {
+  const newsletterForm = document.querySelector('.newsletter-form');
+  const newsletterInput = newsletterForm.querySelector('input');
+  const newsletterBtn = newsletterForm.querySelector('.newsletter-btn');
+  
+  newsletterBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const email = newsletterInput.value.trim();
+    
+    if (!email) {
+      showNewsletterMessage('Please enter your email address', 'error');
+      return;
+    }
+    
+    if (!isValidEmail(email)) {
+      showNewsletterMessage('Please enter a valid email address', 'error');
+      return;
+    }
+    
+    // subscription print
+    showNewsletterMessage('Thank you for subscribing to our newsletter.feature coming soon',);
+    newsletterInput.value = '';
+  });
+  
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+  
+  function showNewsletterMessage(message, type) {
+    // Create toast notification
+    const toast = document.createElement('div');
+    toast.className = `toast ${type} visible`;
+    toast.innerHTML = `
+      <div class="toast-icon">
+        <i class="bi-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+      </div>
+      <div class="toast-message">${message}</div>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+      toast.classList.remove('visible');
+      setTimeout(() => {
+        document.body.removeChild(toast);
+      }, 300);
+    }, 3000);
+  }
+});
+</script>
+
+  <!-- Modal for detailed view -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Media Title</h3>
+        <div class="modal-actions">
+          <button class="modal-action-btn" id="downloadBtn">
+            <i class="bi-download"></i>
+          </button>
+          <button class="modal-action-btn" id="shareBtn">
+            <i class="bi-share"></i>
+          </button>
+          <button class="modal-action-btn close-modal" id="closeModal">
+            <i class="bi-x"></i>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media-container" id="modalMediaContainer">
+          <!-- Media will be inserted here -->
+        </div>
+        <div class="modal-info">
+          <div class="modal-meta" id="modalMeta">
+            <!-- Meta information will be inserted here -->
+          </div>
+          <p class="modal-description" id="modalDescription">Media description will appear here.</p>
+          <div class="modal-tags" id="modalTags">
+            <!-- Tags will be inserted here -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-navigation">
+        <button class="nav-btn" id="prevMedia">
+          <i class="bi-chevron-left"></i>
+        </button>
+        <button class="nav-btn" id="nextMedia">
+          <i class="bi-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop">
+    <i class="bi-chevron-up"></i>
+  </button>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <div class="toast-icon">
+      <i class="bi-check-circle"></i>
+    </div>
+    <div class="toast-message" id="toastMessage"></div>
+  </div>
+
+  <!-- JAVASCRIPT FILES -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Firebase Scripts -->
+  <script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyDCdt6FV_zrEyZkJCngtXsmEjht1aahX8k",
+      authDomain: "istazz-media-2a381.firebaseapp.com",
+      projectId: "istazz-media-2a381",
+      storageBucket: "istazz-media-2a381.firebasestorage.app",
+      messagingSenderId: "684862202293",
+      appId: "1:684862202293:web:3f5f513c5c6034119139fc"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // DOM Elements
+    const galleryContainer = document.getElementById("gallery");
+    const modalOverlay = document.getElementById("modalOverlay");
+    const closeModal = document.getElementById("closeModal");
+    const modalMediaContainer = document.getElementById("modalMediaContainer");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalMeta = document.getElementById("modalMeta");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalTags = document.getElementById("modalTags");
+    const searchInput = document.getElementById("searchInput");
+    const searchForm = document.getElementById("searchForm");
+    const searchResults = document.getElementById("searchResults");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const sortSelect = document.getElementById("sortSelect");
+    const viewButtons = document.querySelectorAll(".view-btn");
+    const prevMediaBtn = document.getElementById("prevMedia");
+    const nextMediaBtn = document.getElementById("nextMedia");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const shareBtn = document.getElementById("shareBtn");
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+    const toast = document.getElementById("toast");
+    const toastMessage = document.getElementById("toastMessage");
+    const contactForm = document.getElementById("contactForm");
+
+    // Global variables
+    let allMedia = [];
+    let filteredMedia = [];
+    let currentMediaIndex = 0;
+    let currentView = "grid";
+    let currentFilter = "all";
+    let currentSort = "newest";
+
+    // Initialize the application
+    function init() {
+      loadMedia();
+      setupEventListeners();
+    }
+
+    // Fetch all media
+    async function loadMedia() {
+      try {
+        showSkeletonLoading();
+        
+        const querySnapshot = await getDocs(collection(db, "mediaLibrary"));
+        
+        if (querySnapshot.empty) {
+          showNoMediaMessage();
+          return;
+        }
+
+        allMedia = [];
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const id = doc.id;
+          allMedia.push({ id, ...data });
+        });
+
+        // Apply initial filtering and sorting
+        filteredMedia = [...allMedia];
+        applyFilters();
+        
+        showToast("Media loaded successfully", "success");
+      } catch (error) {
+        console.error("Error loading media:", error);
+        showErrorMessage("Error loading media. Please check your connection and try again.");
+      }
+    }
+
+    // Display media items
+    function displayMedia(mediaArray) {
+      galleryContainer.innerHTML = "";
+
+      if (mediaArray.length === 0) {
+        showNoResultsMessage();
+        return;
+      }
+
+      mediaArray.forEach((item, index) => {
+        const { id, title, description, thumbnailUrl, fileUrl, tags, date, category, location, type } = item;
+        const displayTitle = title || "Untitled Media";
+        const displayDescription = description || "No description available.";
+        const imageUrl = thumbnailUrl || fileUrl || "";
+        const displayTags = tags || [];
+        const displayDate = formatDate(date) || "Unknown date";
+        const displayCategory = category || "Uncategorized";
+        const displayLocation = location || "Unknown location";
+        const mediaType = type || (imageUrl.endsWith(".mp4") ? "video" : "image");
+
+        // Create media item
+        const itemElement = document.createElement("div");
+        itemElement.classList.add("media-item");
+        itemElement.setAttribute("data-id", id);
+        itemElement.setAttribute("data-index", index);
+
+        // Determine content based on media type
+        let mediaContent = '';
+        if (mediaType === "video") {
+          mediaContent = `
+            <div class="video-icon">
+              <i class="bi-play-fill"></i>
+            </div>
+            <video class="media-image" preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23111'/%3E%3C/svg%3E">
+              <source src="${imageUrl}" type="video/mp4">
+            </video>
+          `;
+        } else {
+          mediaContent = `
+            <img class="media-image" src="${imageUrl}" alt="${item.altText || displayTitle}" loading="lazy">
+          `;
+        }
+
+        // Add content based on current view
+        if (currentView === "list") {
+          itemElement.innerHTML = `
+            ${mediaContent}
+            <div class="media-content">
+              <h3 class="media-title">${displayTitle}</h3>
+              <p class="media-description">${displayDescription}</p>
+              <div class="media-meta">
+                <div class="meta-item">
+                  <i class="bi-calendar"></i>
+                  <span>${displayDate}</span>
+                </div>
+                <div class="meta-item">
+                  <i class="bi-tag"></i>
+                  <span>${displayCategory}</span>
+                </div>
+                <div class="meta-item">
+                  <i class="bi-geo-alt"></i>
+                  <span>${displayLocation}</span>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          itemElement.innerHTML = `
+            ${mediaContent}
+            <div class="media-content">
+              <h3 class="media-title">${displayTitle}</h3>
+              <p class="media-description">${displayDescription}</p>
+            </div>
+          `;
+        }
+
+        // Add click event to open modal with details
+        itemElement.addEventListener('click', () => openModal(item, index));
+        galleryContainer.appendChild(itemElement);
+      });
+
+      searchResults.textContent = `Showing ${mediaArray.length} of ${allMedia.length} items`;
+    }
+
+    // Open modal with media details
+    function openModal(data, index) {
+      currentMediaIndex = index;
+      
+      const title = data.title || "Untitled Media";
+      const description = data.description || "No description available.";
+      const tags = data.tags || [];
+      const date = formatDate(data.date) || "Unknown date";
+      const category = data.category || "Uncategorized";
+      const location = data.location || "Unknown location";
+      const photographer = data.photographer || "Unknown";
+      const equipment = data.equipment || "Not specified";
+      const imageUrl = data.thumbnailUrl || data.fileUrl || "";
+      const mediaType = data.type || (imageUrl.endsWith(".mp4") ? "video" : "image");
+
+      // Set modal content
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+
+      // Set media in modal
+      if (mediaType === "video") {
+        modalMediaContainer.innerHTML = `
+          <video class="modal-media" controls autoplay>
+            <source src="${imageUrl}" type="video/mp4">
+          </video>
+        `;
+      } else {
+        modalMediaContainer.innerHTML = `
+          <img class="modal-media" src="${imageUrl}" alt="${data.altText || title}">
+        `;
+      }
+
+      // Set meta information
+      modalMeta.innerHTML = `
+        <div class="meta-item">
+          <i class="bi-calendar"></i>
+          <span>${date}</span>
+        </div>
+        <div class="meta-item">
+          <i class="bi-tag"></i>
+          <span>${category}</span>
+        </div>
+        <div class="meta-item">
+          <i class="bi-geo-alt"></i>
+          <span>${location}</span>
+        </div>
+        <div class="meta-item">
+          <i class="bi-person"></i>
+          <span>${photographer}</span>
+        </div>
+        <div class="meta-item">
+          <i class="bi-camera"></i>
+          <span>${equipment}</span>
+        </div>
+      `;
+
+      // Set tags
+      modalTags.innerHTML = "";
+      tags.forEach(tag => {
+        const tagElement = document.createElement("span");
+        tagElement.classList.add("tag");
+        tagElement.textContent = tag;
+        tagElement.addEventListener('click', () => {
+          searchInput.value = tag;
+          searchMedia(tag);
+          closeModalHandler();
+        });
+        modalTags.appendChild(tagElement);
+      });
+
+      // Set download button
+      downloadBtn.onclick = () => downloadMedia(imageUrl, title);
+      
+      // Set share button
+      shareBtn.onclick = () => shareMedia(title, imageUrl);
+
+      // Show modal
+      modalOverlay.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    // Navigate to previous media
+    function prevMedia() {
+      if (filteredMedia.length === 0) return;
+      
+      currentMediaIndex = (currentMediaIndex - 1 + filteredMedia.length) % filteredMedia.length;
+      openModal(filteredMedia[currentMediaIndex], currentMediaIndex);
+    }
+
+    // Navigate to next media
+    function nextMedia() {
+      if (filteredMedia.length === 0) return;
+      
+      currentMediaIndex = (currentMediaIndex + 1) % filteredMedia.length;
+      openModal(filteredMedia[currentMediaIndex], currentMediaIndex);
+    }
+
+    // Close modal
+    function closeModalHandler() {
+      modalOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+      
+      // Pause any playing videos
+      const video = modalMediaContainer.querySelector('video');
+      if (video) {
+        video.pause();
+      }
+    }
+
+    // Download media
+    function downloadMedia(url, title) {
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = title || 'media';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      
+      showToast("Download started", "success");
+    }
+
+    // Share media
+    function shareMedia(title, url) {
+      if (navigator.share) {
+        navigator.share({
+          title: title,
+          text: `Check out this media from Istazz Media: ${title}`,
+          url: url,
+        })
+        .then(() => showToast("Shared successfully", "success"))
+        .catch((error) => console.log('Error sharing:', error));
+      } else {
+        // Fallback: copy to clipboard
+        navigator.clipboard.writeText(url)
+          .then(() => showToast("Link copied to clipboard", "success"))
+          .catch(err => {
+            console.error('Failed to copy: ', err);
+            showToast("Failed to share media", "error");
+          });
+      }
+    }
+
+    // Search functionality
+    function searchMedia(query) {
+      if (!query.trim()) {
+        filteredMedia = [...allMedia];
+        applyFilters();
+        return;
+      }
+
+      const searchTerm = query.toLowerCase().trim();
+      filteredMedia = allMedia.filter(item => {
+        const title = (item.title || "").toLowerCase();
+        const description = (item.description || "").toLowerCase();
+        const category = (item.category || "").toLowerCase();
+        const tags = (item.tags || []).join(" ").toLowerCase();
+        const location = (item.location || "").toLowerCase();
+        const photographer = (item.photographer || "").toLowerCase();
+
+        return title.includes(searchTerm) ||
+               description.includes(searchTerm) ||
+               category.includes(searchTerm) ||
+               tags.includes(searchTerm) ||
+               location.includes(searchTerm) ||
+               photographer.includes(searchTerm);
+      });
+
+      applyFilters();
+    }
+
+    // Apply filters and sorting
+    function applyFilters() {
+      let result = [...filteredMedia];
+      
+      // Apply category filter
+      if (currentFilter !== "all") {
+        result = result.filter(item => {
+          const category = (item.category || "").toLowerCase();
+          const tags = (item.tags || []).join(" ").toLowerCase();
+          return category.includes(currentFilter) || tags.includes(currentFilter);
+        });
+      }
+      
+      // Apply sorting
+      result.sort((a, b) => {
+        switch (currentSort) {
+          case "newest":
+            return new Date(b.date || 0) - new Date(a.date || 0);
+          case "oldest":
+            return new Date(a.date || 0) - new Date(b.date || 0);
+          case "title":
+            return (a.title || "").localeCompare(b.title || "");
+          default:
+            return 0;
+        }
+      });
+      
+      displayMedia(result);
+    }
+
+    // Change view mode
+    function changeView(view) {
+      currentView = view;
+      galleryContainer.className = `gallery-grid ${view}`;
+      
+      // Update active view button
+      viewButtons.forEach(btn => {
+        if (btn.getAttribute('data-view') === view) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      
+      // Re-render media with new view
+      applyFilters();
+    }
+
+    // Format date
+    function formatDate(dateString) {
+      if (!dateString) return null;
+      
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+
+    // Show skeleton loading
+    function showSkeletonLoading() {
+      galleryContainer.innerHTML = '';
+      for (let i = 0; i < 8; i++) {
+        const skeleton = document.createElement('div');
+        skeleton.classList.add('skeleton-item');
+        galleryContainer.appendChild(skeleton);
+      }
+    }
+
+    // Show no media message
+    function showNoMediaMessage() {
+      galleryContainer.innerHTML = `
+        <div class="loading">
+          <i class="bi-inbox" style="font-size: 3rem; color: var(--text-light); margin-bottom: 1rem;"></i>
+          <p>No media found in the database.</p>
+          <button class="custom-btn mt-30" onclick="loadMedia()">Try Again</button>
+        </div>
+      `;
+    }
+
+    // Show no results message
+    function showNoResultsMessage() {
+      galleryContainer.innerHTML = `
+        <div class="loading">
+          <i class="bi-search" style="font-size: 3rem; color: var(--text-light); margin-bottom: 1rem;"></i>
+          <p>No media found matching your search.</p>
+          <button class="custom-btn mt-30" onclick="clearSearch()">Clear Search</button>
+        </div>
+      `;
+      searchResults.textContent = "No results found";
+    }
+
+    // Show error message
+    function showErrorMessage(message) {
+      galleryContainer.innerHTML = `
+        <div class="loading">
+          <i class="bi-exclamation-triangle" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+          <p>${message}</p>
+          <button class="custom-btn mt-30" onclick="loadMedia()">Try Again</button>
+        </div>
+      `;
+    }
+
+    // Clear search
+    function clearSearch() {
+      searchInput.value = '';
+      filteredMedia = [...allMedia];
+      applyFilters();
+    }
+
+    // Show toast notification
+    function showToast(message, type = "success") {
+      toastMessage.textContent = message;
+      toast.className = `toast ${type} visible`;
+      
+      setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 3000);
+    }
+
+    // Setup event listeners
+    function setupEventListeners() {
+      // Search form
+      searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        searchMedia(searchInput.value);
+      });
+
+      searchInput.addEventListener('input', (e) => {
+        if (e.target.value === '') {
+          filteredMedia = [...allMedia];
+          applyFilters();
+        }
+      });
+
+      // Filter buttons
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+
+      // Sort select
+      sortSelect.addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        applyFilters();
+      });
+
+      // View buttons
+      viewButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const view = btn.getAttribute('data-view');
+          changeView(view);
+        });
+      });
+
+      // Modal events - FIXED: Properly connect closeModal button
+      closeModal.addEventListener('click', closeModalHandler);
+      
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeModalHandler();
+        }
+      });
+
+      prevMediaBtn.addEventListener('click', prevMedia);
+      nextMediaBtn.addEventListener('click', nextMedia);
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (modalOverlay.classList.contains('active')) {
+          if (e.key === 'Escape') {
+            closeModalHandler();
+          } else if (e.key === 'ArrowLeft') {
+            prevMedia();
+          } else if (e.key === 'ArrowRight') {
+            nextMedia();
+          }
+        }
+      });
+
+      // Scroll to top
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Show/hide scroll to top button
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add('visible');
+        } else {
+          scrollToTopBtn.classList.remove('visible');
+        }
+      });
+
+      // Contact form
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          showToast("Message sent successfully!", "success");
+          contactForm.reset();
+        });
+      }
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    }
+
+    // Make functions available globally for onclick handlers
+    window.loadMedia = loadMedia;
+    window.clearSearch = clearSearch;
+
+    // Initialize the app
+    init();
+  </script>
+</body>
+</html>
