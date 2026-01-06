@@ -8,17 +8,18 @@
     <title>Istazz Media Limited | Creative Simplicity</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- FONT FIX 1: Updated Google Fonts link -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      /* Force Comic Sans on everything */
+      /* FONT FIX 2: Updated font stack */
 *,
 *::before,
 *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+    font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
 }
 
 /* Root Variables */
@@ -43,11 +44,11 @@ body {
     background-color: #fff;
     color: var(--dark-text);
     overflow-x: hidden;
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+    font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
     font-weight: 400;
 }
 
-        }
+        
         
         .container {
             width: 100%;
@@ -661,7 +662,7 @@ body {
                 <div class="logo-tagline">creative simplicity</div>
             </a>
             
-            <nav>
+               <nav>
                 <div class="nav-blue-section"></div>
                 <ul id="nav-menu">
                     <li><a href="index.html" class="active">Home</a></li>
@@ -766,12 +767,12 @@ body {
     </nav>
 
     <style>
-        /* Base Styles */
+        /* FONT FIX 3: Updated base styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         :root {
@@ -853,6 +854,7 @@ body {
             border-radius: 6px;
             border-left: 2px solid #e5e7eb;
             margin-left: 10px;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         nav {
@@ -913,6 +915,7 @@ body {
             border: none !important;
             text-align: center;
             justify-content: center;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         nav ul li a:hover {
@@ -962,6 +965,7 @@ body {
             font-size: 15px !important;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6) !important;
             background: transparent !important;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .dropdown-content a:hover {
@@ -1038,6 +1042,7 @@ body {
             background: #f8fafc;
             border-radius: 4px;
             border-left: 2px solid #e5e7eb;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .mobile-nav-toggle {
@@ -1094,6 +1099,7 @@ body {
             font-weight: 500;
             transition: all 0.3s ease;
             font-size: 15px;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .mobile-nav-menu ul li a i {
@@ -1165,6 +1171,7 @@ body {
             height: 100%;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9) !important;
             background: transparent !important;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         
         .bottom-nav-item svg {
@@ -1467,7 +1474,7 @@ body {
 <style>
     .istazz-here-logo {
   position: absolute;
-  top: 120px;          /* vertical position for desktop */
+  top: 100px;          /* vertical position for desktop */
   left: 660px;         /* horizontal position for desktop */
   width: 190px;
   height: auto;
@@ -1486,41 +1493,99 @@ body {
   }
 }
 
-/* Tablets */
-@media (max-width: 992px) {
+.istazz-here-logo {
+  position: absolute;
+  top: 120px;
+  left: 660px;
+  width: 190px;
+  height: auto;
+  z-index: 9999;
+  pointer-events: auto;
+  transform: translateZ(0);
+  cursor: pointer;
+}
+
+/* Large laptops & desktops */
+@media (max-width: 1440px) {
   .istazz-here-logo {
-    top: 95px;
-    left: 48vw;
-    width: 140px;
+    top: 120px;
+    left: 55%;
+    transform: translateX(-50%);
+    width: 180px;
   }
 }
 
-/* Mobile landscape & portrait - INCREASED SIZE */
+/* Laptops */
+@media (max-width: 1200px) {
+  .istazz-here-logo {
+    top: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+  }
+}
+
+/* Tablets landscape */
+@media (max-width: 1024px) {
+  .istazz-here-logo {
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+  }
+}
+
+/* Tablets portrait */
 @media (max-width: 768px) {
   .istazz-here-logo {
-    top: 85px;
-    left: 42vw;
-    width: 140px;  /* Increased from 120px to 140px */
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
   }
 }
 
-/* Small mobile devices - INCREASED SIZE */
+/* Large mobile devices */
+@media (max-width: 600px) {
+  .istazz-here-logo {
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+  }
+}
+
+/* Mobile devices */
 @media (max-width: 480px) {
   .istazz-here-logo {
-    top: 75px;
-    left: 40vw;
-    width: 130px;  /* Increased from 100px to 130px */
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
   }
 }
 
-/* Extra small mobile devices - NEW BREAKPOINT */
-@media (max-width: 360px) {
+/* Small mobile devices */
+@media (max-width: 375px) {
   .istazz-here-logo {
-    top: 70px;
-    left: 38vw;
-    width: 120px;  /* Still larger than original mobile size */
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
   }
 }
+
+/* Extra small mobile devices */
+@media (max-width: 320px) {
+  .istazz-here-logo {
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+  }
+}
+
+
 </style>
 
             <div class="hero-content">
@@ -1599,7 +1664,7 @@ body {
     <h3 class="service-title">Business Consultancy</h3>
     <p class="service-description">
         Empowering businesses with strategic insights, digital transformation, and growth-driven solutions.
-        Our consultancy services help you navigate change, optimize operations, and unlock your company’s full potential.
+        Our consultancy services help you navigate change, optimize operations, and unlock your company's full potential.
     </p>
 </div>
 
@@ -2085,7 +2150,7 @@ body {
             padding: 60px 0 0;
             position: relative;
             overflow: hidden;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .footer::before {
@@ -2117,6 +2182,7 @@ body {
             position: relative;
             display: inline-block;
             font-weight: 700;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .footer-section h3::after {
@@ -2135,6 +2201,7 @@ body {
             margin: 20px 0 15px;
             color: var(--text-white-light);
             font-weight: 600;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         /* Logo Section */
@@ -2154,6 +2221,7 @@ body {
             font-size: 1.5rem;
             font-weight: 700;
             color: white;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .footer-description {
@@ -2161,6 +2229,7 @@ body {
             line-height: 1.7;
             margin-bottom: 25px;
             font-size: 0.95rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         /* Newsletter */
@@ -2181,6 +2250,7 @@ body {
             background: rgba(255, 255, 255, 0.1);
             color: white;
             font-size: 0.9rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .newsletter-form input::placeholder {
@@ -2202,6 +2272,7 @@ body {
             transition: var(--transition);
             font-weight: 600;
             font-size: 0.9rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .newsletter-btn:hover {
@@ -2252,6 +2323,7 @@ body {
             align-items: flex-start;
             gap: 8px;
             font-size: 0.95rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .footer-links a i {
@@ -2293,6 +2365,7 @@ body {
             margin-bottom: 8px;
             font-size: 0.9rem;
             color: var(--text-white-light);
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .hours-list li span:first-child {
@@ -2318,6 +2391,7 @@ body {
             color: var(--text-white-light);
             font-size: 0.9rem;
             margin: 0;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .legal-links {
@@ -2332,6 +2406,7 @@ body {
             text-decoration: none;
             font-size: 0.9rem;
             transition: var(--transition);
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .legal-links a:hover {
@@ -2344,6 +2419,7 @@ body {
             gap: 10px;
             color: var(--text-white-light);
             font-size: 0.9rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .payment-icons {
@@ -2366,6 +2442,7 @@ body {
             text-align: center;
             color: var(--text-white-light);
             font-size: 0.85rem;
+            font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
 
         .footer-credits i {
@@ -2492,8 +2569,8 @@ body {
                             f or excellence in branding, event management 
                             and production solutions, all with  an urge to 
                             exceed customer expectations.
-                            We are founded on a philosophy of  ‘Creative 
-                            Simplicity’ where we seek to always use new and 
+                            We are founded on a philosophy of  'Creative 
+                            Simplicity' where we seek to always use new and 
                             i nnovative techniques and solutions to meet the 
                             needs of our clients.
                             Creativity is in our DNA.</p>
@@ -2599,7 +2676,7 @@ body {
                 </div>
                 
                 <div class="footer-credits">
-                    <p>Designed with <i class="bi bi-heart-fill" style="color: var(--primary);"></i> by Istazz Media Team</p>
+                    <p>Designed by Istazz Media Team</p>
                 </div>
             </div>
         </div>
